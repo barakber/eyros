@@ -3,6 +3,7 @@ use std::backtrace::Backtrace;
 use crate::TreeId;
 
 #[derive(Debug)]
+#[allow(dead_code)]
 pub struct EyrosError {
   kind: EyrosErrorKind,
   backtrace: Backtrace,
@@ -28,9 +29,6 @@ impl EyrosErrorKind {
 }
 
 impl std::error::Error for EyrosError {
-  fn backtrace(&'_ self) -> Option<&'_ Backtrace> {
-    Some(&self.backtrace)
-  }
 }
 
 impl std::fmt::Display for EyrosError {
